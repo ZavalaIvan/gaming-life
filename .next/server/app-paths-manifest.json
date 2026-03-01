@@ -1,7 +1,0 @@
-{
-  "/(tabs)/rewards/page": "app/(tabs)/rewards/page.js",
-  "/(tabs)/challenges/page": "app/(tabs)/challenges/page.js",
-  "/(tabs)/profile/page": "app/(tabs)/profile/page.js",
-  "/(tabs)/config/page": "app/(tabs)/config/page.js",
-  "/(tabs)/auro/page": "app/(tabs)/auro/page.js"
-}

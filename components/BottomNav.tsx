@@ -4,7 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef } from "react";
 
-const items = [
+type NavHref =
+  | "/home"
+  | "/rewards"
+  | "/challenges"
+  | "/profile"
+  | "/auro"
+  | "/config";
+
+const items: Array<{ href: NavHref; label: string; icon: string }> = [
   { href: "/home", label: "Home", icon: "HM" },
   { href: "/rewards", label: "Tienda", icon: "$" },
   { href: "/challenges", label: "Retos", icon: "RT" },
