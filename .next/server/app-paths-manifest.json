@@ -1,0 +1,9 @@
+{
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/(tabs)/home/page": "app/(tabs)/home/page.js",
+  "/(tabs)/challenges/page": "app/(tabs)/challenges/page.js",
+  "/(tabs)/rewards/page": "app/(tabs)/rewards/page.js",
+  "/(tabs)/profile/page": "app/(tabs)/profile/page.js",
+  "/(tabs)/config/page": "app/(tabs)/config/page.js",
+  "/(tabs)/auro/page": "app/(tabs)/auro/page.js"
+}

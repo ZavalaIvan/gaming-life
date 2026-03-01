@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top, rgba(240, 197, 108, 0.18), transparent 30%),
+    linear-gradient(180deg, #f8fbf6 0%, #eef5eb 45%, #e7f0e6 100%);
+}
+
+body {
+  min-height: 100vh;
+  color: #2f3e36;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(109, 139, 116, 0.4) transparent;
+}
+
+.safe-bottom {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+}
+
+.glass-card {
+  @apply rounded-[28px] border border-white/70 bg-white/80 shadow-soft backdrop-blur;
+}
+
+.section-title {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-sage/80;
+}
+
+.bottom-nav-shell {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 251, 246, 0.92));
+}
+
+.bottom-nav-scroll {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.bottom-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-nav-fade {
+  background:
+    linear-gradient(90deg, rgba(247, 251, 246, 0.96), rgba(247, 251, 246, 0) 12%, rgba(247, 251, 246, 0) 88%, rgba(247, 251, 246, 0.96));
+}
+
+@keyframes toast-pop {
+  0% { opacity: 0; transform: translateY(-10px) scale(0.94); }
+  12% { opacity: 1; transform: translateY(0) scale(1); }
+  88% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0.96; transform: translateY(-2px) scale(0.99); }
+}
+
+@keyframes toast-sheen {
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  18% { opacity: 0.4; }
+  100% { transform: translateX(280%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes reward-flash {
+  0% { opacity: 0; transform: scale(0.84); }
+  15% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.16); }
+}
+
+@keyframes reward-orb {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  20% { opacity: 0.85; }
+  100% { opacity: 0; transform: translateY(-34px) translateX(var(--x, 0px)) scale(1.05); }
+}
+
+@keyframes progress-sheen {
+  0% { opacity: 0; transform: translateX(-160%); }
+  20% { opacity: 0.45; }
+  100% { opacity: 0; transform: translateX(200%); }
+}
+
+@keyframes coin-bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-2px) rotate(-8deg); }
+  50% { transform: translateY(0) rotate(6deg); }
+  75% { transform: translateY(-1px) rotate(-4deg); }
+}
+
+@keyframes level-spin {
+  0% { transform: scale(0.96) rotate(0deg); }
+  45% { transform: scale(1.06) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes streak-flicker {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+}
+
+@keyframes ring-expand {
+  0% { opacity: 0.55; transform: scale(0.92); }
+  100% { opacity: 0; transform: scale(1.08); }
+}
+
+@keyframes pulse-soft {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(240, 197, 108, 0.35); }
+  70% { transform: scale(1.015); box-shadow: 0 0 0 14px rgba(240, 197, 108, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(240, 197, 108, 0); }
+}
+
+@keyframes float-up {
+  0% { opacity: 0; transform: translateY(10px) scale(0.96); }
+  15% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-22px) scale(0.98); }
+}
+
+@keyframes confetti-soft {
+  0% { opacity: 0; transform: translateY(0) scale(0.7); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(18px) translateX(var(--drift, 0px)) scale(1); }
+}
+
+.pulse-soft {
+  animation: pulse-soft 0.85s ease-out;
+}
+
+.float-up {
+  animation: float-up 1.25s ease-out forwards;
+}
+
+.confetti-soft {
+  animation: confetti-soft 0.9s ease-out forwards;
+}
+
+.toast-pop {
+  animation: toast-pop 2.6s ease-out;
+}
+
+.toast-sheen {
+  position: absolute;
+  inset: 0;
+  width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: toast-sheen 1.4s ease-out;
+}
+
+.reward-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: reward-flash 0.9s ease-out forwards;
+}
+
+.reward-flash-coin {
+  background: radial-gradient(circle at 50% 18%, rgba(240, 197, 108, 0.22), transparent 34%);
+}
+
+.reward-flash-level {
+  background: radial-gradient(circle at 50% 18%, rgba(109, 139, 116, 0.24), transparent 36%);
+}
+
+.reward-flash-xp {
+  background: radial-gradient(circle at 50% 18%, rgba(130, 180, 183, 0.18), transparent 32%);
+}
+
+.reward-orb {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-left: -0.4rem;
+  border-radius: 999px;
+  animation: reward-orb 0.9s ease-out forwards;
+}
+
+.reward-orb-a {
+  --x: -32px;
+  background: rgba(240, 197, 108, 0.9);
+}
+
+.reward-orb-b {
+  --x: 28px;
+  background: rgba(127, 183, 126, 0.88);
+}
+
+.reward-orb-c {
+  --x: 6px;
+  background: rgba(130, 180, 183, 0.86);
+}
+
+.progress-sheen {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  animation: progress-sheen 1.9s ease-out infinite;
+}
+
+.coin-bounce {
+  animation: coin-bounce 0.85s ease-in-out infinite;
+}
+
+.level-spin {
+  animation: level-spin 0.95s ease-out infinite;
+}
+
+.streak-flicker {
+  animation: streak-flicker 0.8s ease-in-out infinite;
+}
+
+.task-card-glow {
+  background: radial-gradient(circle, rgba(240, 197, 108, 0.22), transparent 68%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.group:hover .task-card-glow {
+  opacity: 1;
+}
+
+.success-ring {
+  border: 1px solid rgba(127, 183, 126, 0.5);
+  animation: ring-expand 0.7s ease-out forwards;
+}
